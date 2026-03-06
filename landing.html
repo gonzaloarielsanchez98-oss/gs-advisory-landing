@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GS Advisory | Consultoría en Licitaciones</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --verde-oscuro: #0a1f14;
+    --verde-medio: #1a3d2a;
+    --verde-claro: #2a5c3e;
+    --verde-acento: #3a7a52;
+    --gold: #C9A84C;
+    --gold-claro: #e8c96a;
+    --blanco: rgba(235,245,238,0.93);
+    --blanco-suave: rgba(235,245,238,0.65);
+    --gold-suave: rgba(201,168,76,0.70);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Jost', sans-serif;
+    background: var(--verde-oscuro);
+    color: var(--blanco);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 24px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to bottom, rgba(10,31,20,0.95), transparent);
+  }
+
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: 22px;
+    letter-spacing: 4px;
+    color: var(--blanco);
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--blanco-suave);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .nav-links a:hover { color: var(--gold); }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    padding: 120px 60px 80px;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 30% 50%, rgba(42,92,62,0.4) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 20%, rgba(201,168,76,0.06) 0%, transparent 50%),
+                linear-gradient(135deg, #0a1f14 0%, #1a3d2a 50%, #2a5c3e 100%);
+  }
+
+  /* SVG decorativo hero */
+  .hero-svg {
+    position: absolute;
+    top: 50%;
+    right: 5%;
+    transform: translateY(-50%);
+    width: 480px;
+    height: 480px;
+    opacity: 0.55;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 680px;
+  }
+
+  .hero-tag {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 11px;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 28px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.2s;
+  }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(52px, 6vw, 82px);
+    line-height: 1.1;
+    letter-spacing: 2px;
+    color: var(--blanco);
+    margin-bottom: 28px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.4s;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--gold-claro);
+  }
+
+  .hero-sub {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--blanco-suave);
+    max-width: 520px;
+    margin-bottom: 48px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.6s;
+  }
+
+  .hero-cta {
+    display: inline-block;
+    padding: 16px 40px;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    font-family: 'Jost', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.3s;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.8s;
+  }
+
+  .hero-cta:hover {
+    background: var(--gold);
+    color: var(--verde-oscuro);
+  }
+
+  .hero-divider {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(201,168,76,0.3), transparent);
+  }
+
+  /* ── SERVICIOS ── */
+  #servicios {
+    padding: 120px 60px;
+    background: var(--verde-oscuro);
+    position: relative;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 80px;
+  }
+
+  .section-tag {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 11px;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+    display: block;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(36px, 4vw, 52px);
+    letter-spacing: 2px;
+    color: var(--blanco);
+    line-height: 1.2;
+  }
+
+  .section-title em {
+    font-style: italic;
+    color: var(--gold-claro);
+  }
+
+  .servicios-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .servicio-card {
+    padding: 48px 40px;
+    background: linear-gradient(135deg, rgba(26,61,42,0.6), rgba(42,92,62,0.3));
+    border: 1px solid rgba(201,168,76,0.10);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s;
+    cursor: default;
+  }
+
+  .servicio-card::before {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 100%; height: 2px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+    transform: scaleX(0);
+    transition: transform 0.4s;
+  }
+
+  .servicio-card:hover {
+    background: linear-gradient(135deg, rgba(26,61,42,0.9), rgba(42,92,62,0.6));
+    border-color: rgba(201,168,76,0.25);
+    transform: translateY(-4px);
+  }
+
+  .servicio-card:hover::before { transform: scaleX(1); }
+
+  .servicio-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: 48px;
+    color: rgba(201,168,76,0.15);
+    line-height: 1;
+    margin-bottom: 24px;
+  }
+
+  .servicio-titulo {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    font-size: 22px;
+    letter-spacing: 1px;
+    color: var(--blanco);
+    margin-bottom: 16px;
+    line-height: 1.3;
+  }
+
+  .servicio-desc {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--blanco-suave);
+  }
+
+  /* ── POR QUÉ ELEGIRNOS ── */
+  #diferencial {
+    padding: 120px 60px;
+    background: linear-gradient(135deg, #0d2518 0%, #1a3d2a 100%);
+    position: relative;
+  }
+
+  #diferencial::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 70% 50%, rgba(201,168,76,0.05) 0%, transparent 60%);
+  }
+
+  .diferencial-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+    position: relative;
+    z-index: 1;
+  }
+
+  .diferencial-left .section-header {
+    text-align: left;
+    margin-bottom: 40px;
+  }
+
+  .diferencial-intro {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 1.9;
+    color: var(--blanco-suave);
+  }
+
+  .diferencial-items {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .diferencial-item {
+    padding: 32px 0;
+    border-bottom: 1px solid rgba(235,245,238,0.08);
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    gap: 24px;
+    align-items: start;
+  }
+
+  .diferencial-item:first-child { border-top: 1px solid rgba(235,245,238,0.08); }
+
+  .diferencial-icon {
+    width: 2px;
+    height: 32px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+    margin-top: 4px;
+  }
+
+  .diferencial-titulo {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    font-size: 20px;
+    color: var(--blanco);
+    margin-bottom: 10px;
+    letter-spacing: 0.5px;
+  }
+
+  .diferencial-texto {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--blanco-suave);
+  }
+
+  /* ── CONTACTO ── */
+  #contacto {
+    padding: 120px 60px;
+    background: var(--verde-oscuro);
+    position: relative;
+  }
+
+  .contacto-inner {
+    max-width: 680px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .contacto-inner .section-header {
+    margin-bottom: 60px;
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: left;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .form-group label {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold-suave);
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    background: rgba(26,61,42,0.4);
+    border: 1px solid rgba(235,245,238,0.12);
+    padding: 14px 18px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    color: var(--blanco);
+    outline: none;
+    transition: border-color 0.3s;
+    -webkit-appearance: none;
+  }
+
+  .form-group input::placeholder,
+  .form-group textarea::placeholder {
+    color: rgba(235,245,238,0.25);
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: rgba(201,168,76,0.5);
+  }
+
+  .form-group select option {
+    background: var(--verde-medio);
+    color: var(--blanco);
+  }
+
+  .form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+
+  .form-submit {
+    margin-top: 12px;
+    padding: 18px 48px;
+    background: transparent;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    font-family: 'Jost', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s;
+    align-self: center;
+  }
+
+  .form-submit:hover {
+    background: var(--gold);
+    color: var(--verde-oscuro);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    padding: 40px 60px;
+    border-top: 1px solid rgba(235,245,238,0.06);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: 18px;
+    letter-spacing: 4px;
+    color: var(--blanco-suave);
+  }
+
+  .footer-copy {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: rgba(235,245,238,0.25);
+  }
+
+  .footer-gold {
+    width: 40px;
+    height: 1px;
+    background: var(--gold);
+    opacity: 0.4;
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 20px 30px; }
+    .nav-links { display: none; }
+    #hero, #servicios, #diferencial, #contacto { padding: 80px 30px; }
+    .diferencial-inner { grid-template-columns: 1fr; gap: 40px; }
+    .form-row { grid-template-columns: 1fr; }
+    footer { flex-direction: column; gap: 16px; text-align: center; }
+    .hero-svg { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-logo">GS Advisory</a>
+  <ul class="nav-links">
+    <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#diferencial">Nosotros</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+
+  <!-- SVG decorativo — mismo ícono del logo -->
+  <svg class="hero-svg" viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="hGold" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#C9A84C" stop-opacity="0.1"/>
+        <stop offset="35%" stop-color="#C9A84C" stop-opacity="0.9"/>
+        <stop offset="100%" stop-color="#C9A84C" stop-opacity="0.2"/>
+      </linearGradient>
+      <linearGradient id="hGreen" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#52c490" stop-opacity="0.1"/>
+        <stop offset="40%" stop-color="#52c490" stop-opacity="0.85"/>
+        <stop offset="100%" stop-color="#3aaa78" stop-opacity="0.2"/>
+      </linearGradient>
+      <linearGradient id="hGreen2" x1="100%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stop-color="#3a9e6e" stop-opacity="0.1"/>
+        <stop offset="45%" stop-color="#4ab882" stop-opacity="0.75"/>
+        <stop offset="100%" stop-color="#3a9e6e" stop-opacity="0.15"/>
+      </linearGradient>
+      <linearGradient id="hGold2" x1="0%" y1="100%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#C9A84C" stop-opacity="0.05"/>
+        <stop offset="50%" stop-color="#d4b86a" stop-opacity="0.55"/>
+        <stop offset="100%" stop-color="#C9A84C" stop-opacity="0.1"/>
+      </linearGradient>
+    </defs>
+    <path d="M 89 318 C 95 159 231 89 369 141" stroke="url(#hGold)" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <path d="M 114 117 C 195 175 257 222 389 303" stroke="url(#hGreen)" stroke-width="2.3" fill="none" stroke-linecap="round"/>
+    <path d="M 126 333 C 209 263 304 192 403 125" stroke="url(#hGreen2)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+    <path d="M 163 118 C 186 181 221 223 289 269" stroke="url(#hGold2)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+    <circle cx="89"  cy="318" r="5" fill="#C9A84C" opacity="0.85"/>
+    <circle cx="369" cy="141" r="4" fill="#C9A84C" opacity="0.55"/>
+    <circle cx="114" cy="117" r="4.5" fill="#52c490" opacity="0.75"/>
+    <circle cx="389" cy="303" r="3.5" fill="#52c490" opacity="0.45"/>
+    <circle cx="240" cy="207" r="3" fill="rgba(235,245,238,0.4)"/>
+  </svg>
+
+  <div class="hero-content">
+    <p class="hero-tag">Consultoría especializada</p>
+    <h1 class="hero-title">Del pliego<br>a la <em>adjudicación</em></h1>
+    <p class="hero-sub">Desarrollamos ofertas técnicas y económicas diferenciales para que tu empresa gane más contratos — en licitaciones públicas y privadas.</p>
+    <a href="#contacto" class="hero-cta">Consultá sin cargo</a>
+  </div>
+
+  <div class="hero-divider"></div>
+</section>
+
+<!-- SERVICIOS -->
+<section id="servicios">
+  <div class="section-header reveal">
+    <span class="section-tag">Lo que hacemos</span>
+    <h2 class="section-title">Nuestros <em>servicios</em></h2>
+  </div>
+
+  <div class="servicios-grid">
+    <div class="servicio-card reveal">
+      <div class="servicio-num">01</div>
+      <h3 class="servicio-titulo">Análisis estratégico de pliegos</h3>
+      <p class="servicio-desc">Evaluamos cada pliego como una oportunidad de negocio. Identificamos requisitos, riesgos y criterios de evaluación antes de comprometer recursos.</p>
+    </div>
+    <div class="servicio-card reveal">
+      <div class="servicio-num">02</div>
+      <h3 class="servicio-titulo">Ofertas técnicas de alto impacto</h3>
+      <p class="servicio-desc">Desarrollamos memorias descriptivas, alcances de obra y documentación técnica con el estándar y el lenguaje que exigen los comitentes.</p>
+    </div>
+    <div class="servicio-card reveal">
+      <div class="servicio-num">03</div>
+      <h3 class="servicio-titulo">Propuestas económicas competitivas</h3>
+      <p class="servicio-desc">Estructuramos presupuestos con el nivel de detalle que genera confianza y diferencia tu oferta del resto de los competidores.</p>
+    </div>
+    <div class="servicio-card reveal">
+      <div class="servicio-num">04</div>
+      <h3 class="servicio-titulo">Documentación y presentación ejecutiva</h3>
+      <p class="servicio-desc">Armamos y organizamos toda la documentación requerida para una presentación profesional, clara y sin errores formales.</p>
+    </div>
+    <div class="servicio-card reveal">
+      <div class="servicio-num">05</div>
+      <h3 class="servicio-titulo">Identificación de oportunidades licitatorias</h3>
+      <p class="servicio-desc">Monitoreamos el mercado y detectamos licitaciones alineadas al perfil y capacidad de tu empresa, tanto en el sector público como privado.</p>
+    </div>
+    <div class="servicio-card reveal">
+      <div class="servicio-num">06</div>
+      <h3 class="servicio-titulo">Desarrollo y expansión de cartera</h3>
+      <p class="servicio-desc">Acompañamos a tu empresa en la construcción de relaciones comerciales con nuevos clientes y sectores, potenciando su crecimiento sostenido.</p>
+    </div>
+  </div>
+</section>
+
+<!-- POR QUÉ ELEGIRNOS -->
+<section id="diferencial">
+  <div class="diferencial-inner">
+    <div class="diferencial-left">
+      <div class="section-header reveal">
+        <span class="section-tag">Por qué elegirnos</span>
+        <h2 class="section-title">Experiencia<br>que <em>marca</em><br>la diferencia</h2>
+      </div>
+      <p class="diferencial-intro reveal">
+        GS Advisory es una consultora especializada en procesos licitatorios, formada por ingenieros con experiencia directa en proyectos de construcción e instalaciones industriales. Conocemos el proceso desde adentro.
+      </p>
+    </div>
+    <div class="diferencial-items">
+      <div class="diferencial-item reveal">
+        <div class="diferencial-icon"></div>
+        <div>
+          <h4 class="diferencial-titulo">Dominio técnico del rubro</h4>
+          <p class="diferencial-texto">Nuestro equipo tiene experiencia directa en proyectos industriales. Eso se traduce en ofertas con el nivel de detalle y precisión que los comitentes esperan.</p>
+        </div>
+      </div>
+      <div class="diferencial-item reveal">
+        <div class="diferencial-icon"></div>
+        <div>
+          <h4 class="diferencial-titulo">Inteligencia artificial aplicada</h4>
+          <p class="diferencial-texto">Integramos IA en nuestro proceso de trabajo, lo que nos permite desarrollar propuestas complejas en tiempos que la competencia no puede igualar, sin resignar calidad.</p>
+        </div>
+      </div>
+      <div class="diferencial-item reveal">
+        <div class="diferencial-icon"></div>
+        <div>
+          <h4 class="diferencial-titulo">Enfoque estratégico</h4>
+          <p class="diferencial-texto">No completamos formularios. Construimos propuestas diseñadas para ganar — analizando criterios de evaluación y posicionando a tu empresa de forma diferencial.</p>
+        </div>
+      </div>
+      <div class="diferencial-item reveal">
+        <div class="diferencial-icon"></div>
+        <div>
+          <h4 class="diferencial-titulo">Acompañamiento integral</h4>
+          <p class="diferencial-texto">Desde el análisis del pliego hasta la presentación final. Tu equipo se enfoca en operar; nosotros nos enfocamos en que ganen el contrato.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto">
+  <div class="contacto-inner">
+    <div class="section-header reveal">
+      <span class="section-tag">Contacto</span>
+      <h2 class="section-title">Analizamos tu próxima<br>licitación <em>sin cargo</em></h2>
+    </div>
+
+    <form class="form reveal" action="https://formspree.io/f/mojkqeqq" method="POST">
+      <input type="hidden" name="_subject" value="Nueva consulta desde GS Advisory">
+      <input type="hidden" name="_next" value="">
+      <div class="form-row">
+        <div class="form-group">
+          <label>Nombre</label>
+          <input type="text" name="nombre" placeholder="Tu nombre" required>
+        </div>
+        <div class="form-group">
+          <label>Empresa</label>
+          <input type="text" name="empresa" placeholder="Nombre de tu empresa" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" name="email" placeholder="tu@empresa.com" required>
+        </div>
+        <div class="form-group">
+          <label>Teléfono</label>
+          <input type="tel" name="telefono" placeholder="+54 9 ...">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>¿En qué podemos ayudarte?</label>
+        <select name="servicio">
+          <option value="" disabled selected>Seleccioná un servicio</option>
+          <option>Análisis estratégico de pliego</option>
+          <option>Desarrollo de oferta técnica</option>
+          <option>Propuesta económica</option>
+          <option>Identificación de licitaciones</option>
+          <option>Desarrollo de cartera de clientes</option>
+          <option>Acompañamiento integral</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Mensaje</label>
+        <textarea name="mensaje" placeholder="Contanos brevemente tu consulta o el proyecto en cuestión..."></textarea>
+      </div>
+      <button type="submit" class="form-submit">Enviar consulta</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-logo">GS Advisory</span>
+  <div class="footer-gold"></div>
+  <span class="footer-copy">© 2025 GS Advisory · Todos los derechos reservados</span>
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+
+  // Form submit
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('.form-submit');
+    btn.textContent = 'Mensaje enviado ✓';
+    btn.style.background = 'var(--gold)';
+    btn.style.color = 'var(--verde-oscuro)';
+    btn.disabled = true;
+  }
+</script>
+
+</body>
+</html>
