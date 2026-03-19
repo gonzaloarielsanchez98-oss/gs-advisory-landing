@@ -170,11 +170,12 @@
     font-weight: 300;
     font-size: 16px;
     line-height: 1.8;
-    color: var(--blanco-suave);
+    color: rgba(235,245,238,0.92);
     max-width: 520px;
     margin-bottom: 48px;
     opacity: 0;
     will-change: transform, opacity;
+    text-shadow: 0 1px 12px rgba(0,0,0,0.75), 0 2px 24px rgba(0,0,0,0.5);
   }
 
   .hero-cta {
@@ -182,6 +183,7 @@
     padding: 16px 40px;
     border: 1px solid var(--gold);
     color: var(--gold);
+    background: rgba(10,31,20,0.45);
     font-family: 'Jost', sans-serif;
     font-weight: 400;
     font-size: 12px;
@@ -192,6 +194,8 @@
     opacity: 0;
     will-change: transform, opacity;
     cursor: none;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
   }
 
   .hero-cta:hover {
