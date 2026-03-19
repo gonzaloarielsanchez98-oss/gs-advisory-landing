@@ -33,7 +33,7 @@
   nav {
     position: fixed;
     top: 0; left: 0; right: 0;
-    z-index: 100;
+    z-index: 200;
     padding: 24px 60px;
     display: flex;
     justify-content: space-between;
@@ -785,6 +785,137 @@
     transform: translateY(0);
   }
 
+  /* ── HAMBURGER ── */
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    padding: 6px;
+    cursor: pointer;
+    z-index: 201;
+    position: relative;
+  }
+
+  .nav-hamburger span {
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: var(--blanco);
+    transition: transform 0.35s ease, opacity 0.35s ease;
+    transform-origin: center;
+  }
+
+  .nav-hamburger.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+  .nav-hamburger.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+  @media (max-width: 900px) {
+    .nav-hamburger { display: flex; }
+  }
+
+  /* ── MOBILE MENU OVERLAY ── */
+  .mobile-menu {
+    position: fixed;
+    inset: 0;
+    z-index: 190;
+    background: rgba(10,31,20,0.97);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+  }
+
+  .mobile-menu::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(201,168,76,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(201,168,76,0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+  }
+
+  .mobile-menu.open {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .mobile-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .mobile-nav-link {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(40px, 11vw, 72px);
+    letter-spacing: 3px;
+    color: rgba(235,245,238,0.85);
+    text-decoration: none;
+    line-height: 1.25;
+    padding: 12px 0;
+    opacity: 0;
+    transform: translateY(22px);
+    transition: color 0.3s ease, opacity 0.45s ease, transform 0.45s ease;
+    display: block;
+  }
+
+  .mobile-menu.open .mobile-nav-link:nth-child(1) { opacity: 1; transform: translateY(0); transition-delay: 0.10s; }
+  .mobile-menu.open .mobile-nav-link:nth-child(2) { opacity: 1; transform: translateY(0); transition-delay: 0.20s; }
+  .mobile-menu.open .mobile-nav-link:nth-child(3) { opacity: 1; transform: translateY(0); transition-delay: 0.30s; }
+
+  .mobile-nav-link:hover { color: var(--gold); }
+
+  .mobile-menu-divider {
+    width: 40px;
+    height: 1px;
+    background: rgba(201,168,76,0.35);
+    margin: 32px auto;
+    opacity: 0;
+    transition: opacity 0.4s ease 0.35s;
+    position: relative;
+    z-index: 1;
+  }
+
+  .mobile-menu.open .mobile-menu-divider { opacity: 1; }
+
+  .mobile-nav-cta {
+    display: inline-block;
+    padding: 14px 40px;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    font-family: 'Jost', sans-serif;
+    font-weight: 400;
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    text-decoration: none;
+    opacity: 0;
+    transform: translateY(16px);
+    transition: color 0.3s ease, background 0.3s ease, opacity 0.45s ease, transform 0.45s ease;
+    transition-delay: 0.40s;
+    position: relative;
+    z-index: 1;
+  }
+
+  .mobile-menu.open .mobile-nav-cta { opacity: 1; transform: translateY(0); }
+  .mobile-nav-cta:hover { background: var(--gold); color: var(--verde-oscuro); }
+
   /* ── CUSTOM CURSOR ── */
   @media (hover: hover) and (pointer: fine) {
     body { cursor: none; }
@@ -999,7 +1130,22 @@
     <li><a href="#diferencial">Nosotros</a></li>
     <li><a href="#contacto">Contacto</a></li>
   </ul>
+  <button class="nav-hamburger" aria-label="Abrir menú" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 </nav>
+
+<div class="mobile-menu" role="dialog" aria-label="Menú de navegación">
+  <nav class="mobile-nav">
+    <a href="#servicios" class="mobile-nav-link">Servicios</a>
+    <a href="#diferencial" class="mobile-nav-link">Nosotros</a>
+    <a href="#contacto" class="mobile-nav-link">Contacto</a>
+  </nav>
+  <div class="mobile-menu-divider"></div>
+  <a href="#contacto" class="mobile-nav-cta">Consultá sin cargo</a>
+</div>
 
 <!-- HERO -->
 <section id="hero">
@@ -1319,6 +1465,40 @@
 </footer>
 
 <script>
+  // ── HAMBURGER MENU ──
+  (function() {
+    var btn      = document.querySelector('.nav-hamburger');
+    var overlay  = document.querySelector('.mobile-menu');
+    var links    = document.querySelectorAll('.mobile-nav-link, .mobile-nav-cta');
+    if (!btn || !overlay) return;
+
+    function open() {
+      btn.classList.add('open');
+      overlay.classList.add('open');
+      btn.setAttribute('aria-expanded', 'true');
+      btn.setAttribute('aria-label', 'Cerrar menú');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function close() {
+      btn.classList.remove('open');
+      overlay.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+      btn.setAttribute('aria-label', 'Abrir menú');
+      document.body.style.overflow = '';
+    }
+
+    btn.addEventListener('click', function() {
+      btn.classList.contains('open') ? close() : open();
+    });
+
+    links.forEach(function(link) { link.addEventListener('click', close); });
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') close();
+    });
+  })();
+
   // ── HERO ENTRANCE ANIMATIONS ──
   document.addEventListener('DOMContentLoaded', function() {
     ['.hero-tag', '.hero-title', '.hero-sub', '.hero-cta'].forEach(function(sel, i) {
