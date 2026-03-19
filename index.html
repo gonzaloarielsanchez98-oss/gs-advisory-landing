@@ -806,6 +806,114 @@
     a, button, .servicio-card, .hero-cta, .nav-links a { cursor: none; }
   }
 
+  /* ── SERVICIOS AUXILIARES ── */
+  #servicios-aux {
+    padding: 120px 60px;
+    background: linear-gradient(to bottom, var(--verde-oscuro), #0d2518);
+    position: relative;
+  }
+
+  .aux-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .aux-card {
+    padding: 48px 44px;
+    background: linear-gradient(135deg, rgba(26,61,42,0.5), rgba(10,31,20,0.4));
+    border: 1px solid rgba(201,168,76,0.10);
+    border-top: 2px solid rgba(201,168,76,0.55);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s;
+  }
+
+  .aux-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      105deg,
+      transparent 40%,
+      rgba(201,168,76,0.06) 50%,
+      transparent 60%
+    );
+    background-size: 200% 100%;
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+  }
+
+  .aux-card:hover {
+    border-color: rgba(201,168,76,0.22);
+    border-top-color: var(--gold);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 40px rgba(201,168,76,0.10);
+  }
+
+  .aux-card:hover::after { transform: translateX(100%); }
+
+  .aux-icon {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 22px;
+    opacity: 0.80;
+    transition: transform 0.3s ease;
+  }
+
+  .aux-card:hover .aux-icon { transform: translateY(-3px); }
+
+  .aux-titulo {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    font-size: 26px;
+    letter-spacing: 1px;
+    color: var(--blanco);
+    margin-bottom: 8px;
+    line-height: 1.2;
+  }
+
+  .aux-tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 15px;
+    color: var(--gold-suave);
+    margin-bottom: 32px;
+    display: block;
+  }
+
+  .aux-items {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 20px;
+    list-style: none;
+  }
+
+  .aux-items li {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 13px;
+    color: var(--blanco-suave);
+    line-height: 1.6;
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+  }
+
+  .aux-items li::before {
+    content: '';
+    width: 4px;
+    height: 4px;
+    background: var(--gold);
+    border-radius: 50%;
+    margin-top: 7px;
+    flex-shrink: 0;
+    opacity: 0.75;
+  }
+
   /* ── RESPONSIVE ── */
   @media (max-width: 900px) {
     nav { padding: 20px 30px; }
@@ -852,6 +960,12 @@
     /* Cards de servicios: 1 columna */
     .servicios-grid { grid-template-columns: 1fr; }
     .servicio-card { padding: 28px 24px; }
+
+    /* Servicios auxiliares */
+    #servicios-aux { padding: 70px 24px; }
+    .aux-grid { grid-template-columns: 1fr; }
+    .aux-card { padding: 32px 24px; }
+    .aux-items { grid-template-columns: 1fr; }
 
     /* Por qué elegirnos: ya hereda 1 col del 900px breakpoint */
 
@@ -1044,6 +1158,50 @@
       <div class="servicio-num">06</div>
       <h3 class="servicio-titulo">Desarrollo y expansión de cartera</h3>
       <p class="servicio-desc">Acompañamos a tu empresa en la construcción de relaciones comerciales con nuevos clientes y sectores, potenciando su crecimiento sostenido.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICIOS AUXILIARES -->
+<section id="servicios-aux">
+  <div class="section-header reveal">
+    <span class="section-tag">También ofrecemos</span>
+    <h2 class="section-title">Soluciones <em>complementarias</em></h2>
+  </div>
+
+  <div class="aux-grid">
+    <div class="aux-card reveal">
+      <svg class="aux-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="15" cy="13" r="5" stroke="#C9A84C" stroke-width="1.5"/>
+        <path d="M6 30c0-5 4-8 9-8s9 3 9 8" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/>
+        <circle cx="27" cy="13" r="4" stroke="#52c490" stroke-width="1.5"/>
+        <path d="M27 22c3.5 0.5 6 3 6 8" stroke="#52c490" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      <h3 class="aux-titulo">Búsqueda y Selección de Personal</h3>
+      <em class="aux-tagline">El equipo correcto hace la diferencia</em>
+      <ul class="aux-items">
+        <li>Reclutamiento sector industrial</li>
+        <li>Perfiles técnicos y de gestión</li>
+        <li>Evaluaciones psicotécnicas</li>
+        <li>Evaluaciones psicodiagnósticas</li>
+      </ul>
+    </div>
+
+    <div class="aux-card reveal">
+      <svg class="aux-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M8 24V16l14-6v20L8 24z" stroke="#C9A84C" stroke-width="1.5" stroke-linejoin="round"/>
+        <path d="M22 17l8-3v12l-8-3" stroke="#52c490" stroke-width="1.5" stroke-linejoin="round"/>
+        <path d="M8 24l3 6" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/>
+        <circle cx="32" cy="20" r="3" stroke="#52c490" stroke-width="1.5"/>
+      </svg>
+      <h3 class="aux-titulo">Marketing Digital</h3>
+      <em class="aux-tagline">Presencia que genera negocio</em>
+      <ul class="aux-items">
+        <li>Generación de contenido</li>
+        <li>Diseño y desarrollo web</li>
+        <li>Campañas Meta Ads</li>
+        <li>Gestión de redes sociales</li>
+      </ul>
     </div>
   </div>
 </section>
