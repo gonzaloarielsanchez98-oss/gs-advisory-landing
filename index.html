@@ -151,7 +151,7 @@
   .hero-title {
     font-family: 'Cormorant Garamond', serif;
     font-weight: 300;
-    font-size: clamp(60px, 7.5vw, 105px);
+    font-size: clamp(56px, 7vw, 105px);
     line-height: 1.1;
     letter-spacing: 2px;
     color: var(--blanco);
@@ -810,6 +810,61 @@
     .form-row { grid-template-columns: 1fr; }
     footer { flex-direction: column; gap: 16px; text-align: center; }
     .hero-svg { display: none; }
+  }
+
+  @media (max-width: 768px) {
+    /* Navbar */
+    nav { padding: 16px 24px; }
+    .nav-logo { font-size: 18px; }
+
+    /* Hero */
+    #hero { padding: 100px 24px 60px; }
+    .hero-title { font-size: clamp(42px, 10vw, 64px); }
+    .hero-sub { font-size: 14px; }
+
+    /* Secciones generales */
+    #servicios { padding: 70px 24px; }
+    #diferencial { padding: 70px 24px; }
+    #contacto { padding: 70px 24px; }
+    #stats { padding: 50px 16px; }
+
+    /* Stats: 1 columna con separador horizontal gold */
+    .stats-grid {
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+    .stat-item {
+      padding: 28px 20px;
+      text-align: center;
+    }
+    /* Quitar separador vertical */
+    .stat-item:not(:last-child)::after { display: none; }
+    /* Agregar separador horizontal gold */
+    .stat-item:not(:last-child) {
+      border-bottom: 1px solid rgba(201,168,76,0.25);
+    }
+
+    /* Cards de servicios: 1 columna */
+    .servicios-grid { grid-template-columns: 1fr; }
+    .servicio-card { padding: 28px 24px; }
+
+    /* Por qué elegirnos: ya hereda 1 col del 900px breakpoint */
+
+    /* Formulario */
+    .form-row { grid-template-columns: 1fr; }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      font-size: 16px; /* evita zoom automático en iOS */
+    }
+
+    /* Footer */
+    footer {
+      flex-direction: column;
+      gap: 10px;
+      text-align: center;
+      padding: 28px 24px;
+    }
   }
 </style>
 </head>
