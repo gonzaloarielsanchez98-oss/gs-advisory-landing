@@ -444,6 +444,23 @@
     text-align: justify;
   }
 
+  .contacto-email {
+    display: block;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(18px, 2vw, 26px);
+    letter-spacing: 2px;
+    color: var(--gold);
+    text-decoration: none;
+    margin-bottom: 28px;
+    transition: color 0.3s, text-shadow 0.3s;
+  }
+
+  .contacto-email:hover {
+    color: var(--gold-claro);
+    text-shadow: 0 0 20px rgba(201,168,76,0.3);
+  }
+
   /* ── CONTACTO ── */
   #contacto {
     padding: 120px 60px;
@@ -1021,6 +1038,7 @@
   <div class="contacto-inner">
     <div class="section-header reveal">
       <span class="section-tag">Contacto</span>
+      <a href="mailto:gerencia@gsadvisory.com.ar" class="contacto-email">gerencia@gsadvisory.com.ar</a>
       <h2 class="section-title">Analizamos tu próxima<br>licitación <em>sin cargo</em></h2>
     </div>
 
@@ -1079,7 +1097,6 @@
     Seguinos en LinkedIn
   </a>
   <div class="footer-gold"></div>
-  <a href="mailto:gerencia@gsadvisory.com.ar" class="footer-copy" style="text-decoration:none; transition: color 0.3s;">gerencia@gsadvisory.com.ar</a>
   <span class="footer-copy">© 2025 GS Advisory · Todos los derechos reservados</span>
 </footer>
 
