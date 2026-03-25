@@ -22,8 +22,11 @@
 <meta name="twitter:title" content="GS Advisory | Consultoría en Licitaciones">
 <meta name="twitter:description" content="Desarrollamos ofertas técnicas y económicas diferenciales para que tu empresa gane más contratos.">
 <link rel="canonical" href="https://gsadvisory.com.ar">
-<link rel="preload" as="image" href="fotolanding.jpg">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="fotolanding.webp" type="image/webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet"></noscript>
 <style>
   :root {
     --verde-oscuro: #0a1f14;
@@ -115,6 +118,7 @@
     position: absolute;
     inset: 0;
     background-image: url('fotolanding.jpg');
+    background-image: image-set(url('fotolanding.webp') type('image/webp'), url('fotolanding.jpg') type('image/jpeg'));
     background-size: cover;
     background-position: center 40%;
   }
