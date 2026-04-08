@@ -129,10 +129,10 @@
     inset: 0;
     background: linear-gradient(
       to bottom,
-      rgba(14,17,23,0.30) 0%,
-      rgba(14,17,23,0.15) 35%,
-      rgba(14,17,23,0.60) 75%,
-      rgba(14,17,23,0.95) 100%
+      rgba(14,17,23,0.15) 0%,
+      rgba(14,17,23,0.05) 35%,
+      rgba(14,17,23,0.50) 75%,
+      rgba(14,17,23,0.90) 100%
     );
   }
 
@@ -178,7 +178,7 @@
 
   .hero-title {
     font-family: 'Cormorant Garamond', serif;
-    font-weight: 400;
+    font-weight: 600;
     font-size: clamp(56px, 7vw, 105px);
     line-height: 1.1;
     letter-spacing: 2px;
@@ -204,15 +204,15 @@
     opacity: 0;
     will-change: transform, opacity;
     text-shadow: 0 1px 12px rgba(0,0,0,0.75), 0 2px 24px rgba(0,0,0,0.5);
-    text-align: justify;
+    text-align: left;
   }
 
   .hero-cta {
     display: inline-block;
     padding: 16px 40px;
     border: 1px solid var(--gold);
-    color: var(--gold);
-    background: rgba(14,17,23,0.45);
+    color: var(--verde-oscuro);
+    background: var(--gold);
     font-family: 'Jost', sans-serif;
     font-weight: 400;
     font-size: 12px;
@@ -223,12 +223,11 @@
     opacity: 0;
     will-change: transform, opacity;
     cursor: none;
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
   }
 
   .hero-cta:hover {
-    background: var(--gold);
+    background: var(--gold-claro);
+    border-color: var(--gold-claro);
     color: var(--verde-oscuro);
   }
 
@@ -286,7 +285,7 @@
 
   .section-title {
     font-family: 'Cormorant Garamond', serif;
-    font-weight: 400;
+    font-weight: 600;
     font-size: clamp(36px, 4vw, 52px);
     letter-spacing: 2px;
     color: var(--blanco);
@@ -382,7 +381,7 @@
     font-size: 16px;
     line-height: 1.8;
     color: var(--blanco-suave);
-    text-align: justify;
+    text-align: left;
   }
 
   /* ── POR QUÉ ELEGIRNOS ── */
@@ -421,7 +420,7 @@
     font-size: 17px;
     line-height: 1.9;
     color: var(--blanco-suave);
-    text-align: justify;
+    text-align: left;
   }
 
   .diferencial-items {
@@ -469,7 +468,7 @@
     font-size: 16px;
     line-height: 1.8;
     color: var(--blanco-suave);
-    text-align: justify;
+    text-align: left;
   }
 
   .contacto-email {
