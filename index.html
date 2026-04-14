@@ -1136,6 +1136,81 @@
       padding: 28px 24px;
     }
   }
+
+  /* ── SECCIONES CLARAS ── */
+  /* El sitio respira: dark (hero→stats→servicios→aux) → light (diferencial→contacto) → dark (footer) */
+
+  #diferencial {
+    background: #F5F0EA;
+  }
+
+  #diferencial::before {
+    background: radial-gradient(ellipse at 60% 40%, rgba(201,168,76,0.07) 0%, transparent 65%);
+  }
+
+  #diferencial .section-title          { color: #1C1C2E; }
+  #diferencial .section-title em       { color: var(--gold); }
+  #diferencial .diferencial-intro      { color: rgba(28,28,46,0.65); }
+  #diferencial .diferencial-titulo     { color: #1C1C2E; }
+  #diferencial .diferencial-texto      { color: rgba(28,28,46,0.62); }
+
+  #diferencial .diferencial-item {
+    border-bottom-color: rgba(28,28,46,0.09);
+  }
+  #diferencial .diferencial-item:first-child {
+    border-top-color: rgba(28,28,46,0.09);
+  }
+
+  #contacto {
+    background: #F5F0EA;
+  }
+
+  #contacto .section-title             { color: #1C1C2E; }
+  #contacto .section-title em          { color: var(--gold); }
+
+  #contacto .form-group label {
+    color: rgba(28,28,46,0.55);
+  }
+
+  #contacto .form-group input,
+  #contacto .form-group select,
+  #contacto .form-group textarea {
+    background: rgba(255,255,255,0.85);
+    border: 1px solid rgba(28,28,46,0.14);
+    color: #1C1C2E;
+  }
+
+  #contacto .form-group input::placeholder,
+  #contacto .form-group textarea::placeholder {
+    color: rgba(28,28,46,0.30);
+  }
+
+  #contacto .form-group input:focus,
+  #contacto .form-group select:focus,
+  #contacto .form-group textarea:focus {
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px rgba(201,168,76,0.12);
+  }
+
+  #contacto .form-group select option {
+    background: #F5F0EA;
+    color: #1C1C2E;
+  }
+
+  #contacto .form-submit {
+    border-color: #1C1C2E;
+    color: #1C1C2E;
+  }
+
+  #contacto .form-submit:hover {
+    background: #1C1C2E;
+    color: #F5F0EA;
+  }
+
+  /* Transición light → dark en footer */
+  footer {
+    border-top: 1px solid rgba(201,168,76,0.22);
+  }
 </style>
 </head>
 <body>
