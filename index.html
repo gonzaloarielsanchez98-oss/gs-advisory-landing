@@ -807,7 +807,7 @@ footer::after {
 <section id="hero">
 
   <!-- Autoplay video — muted, plays once, freezes on last frame -->
-  <video id="hero-video" autoplay muted playsinline poster="frames/frame_001.webp">
+  <video id="hero-video" autoplay muted playsinline loop poster="frames/frame_001.webp">
     <source src="assets/hero.mp4" type="video/mp4">
   </video>
 
@@ -1143,11 +1143,10 @@ footer::after {
     progress.style.width = ((video.currentTime / video.duration) * 100) + '%';
   });
 
-  /* Handshake complete: freeze on last frame + gold flash */
-  video.addEventListener('ended', function () {
-    hero.classList.add('complete');
-    progress.style.width = '100%';
-    progress.style.transition = 'none';
+  /* Reset progress bar on each loop */
+  video.addEventListener('seeked', function () {
+    if (video.currentTime < 0.5) progress.style.transition = 'none';
+    setTimeout(function () { progress.style.transition = 'width .25s linear'; }, 50);
   });
 }());
 
