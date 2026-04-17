@@ -25,7 +25,7 @@
 <meta name="twitter:description" content="Desarrollamos ofertas técnicas y económicas diferenciales para que tu empresa gane más contratos.">
 <link rel="canonical" href="https://gsadvisory.com.ar">
 
-<link rel="preload" as="image" href="frames/frame_001.webp" type="image/webp">
+<link rel="preload" as="video" href="assets/hero.mp4" type="video/mp4">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -64,51 +64,34 @@ body {
 }
 
 /* ═══════════════════════════════════════
-   PRELOADER
+   HERO — VIDEO
 ═══════════════════════════════════════ */
-#preloader {
-  position: fixed; inset: 0; z-index: 9999;
-  background: var(--verde);
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  gap: 28px;
-  transition: opacity 1s cubic-bezier(0.22,1,0.36,1),
-              visibility 1s cubic-bezier(0.22,1,0.36,1);
+#hero {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  background: #080e0a;
 }
-#preloader.hidden {
-  opacity: 0; visibility: hidden; pointer-events: none;
+
+#hero-video {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  /* Start slightly zoomed in for cinematic feel; scale back on play */
+  transform: scale(1.04);
+  transition: transform 8s cubic-bezier(0.22,1,0.36,1);
 }
-.pre-logo {
-  font-family: 'Cormorant Garamond', serif;
-  font-weight: 300;
-  font-size: clamp(36px, 5vw, 54px);
-  letter-spacing: 8px;
-  color: var(--fondo);
+#hero-video.playing { transform: scale(1); }
+
+/* Subtle gold flash at the moment of handshake completion */
+#hero::after {
+  content: '';
+  position: absolute; inset: 0; z-index: 3;
+  background: rgba(201,168,76,0);
+  pointer-events: none;
+  transition: background .4s ease;
 }
-.pre-sub {
-  font-family: 'DM Sans', sans-serif;
-  font-weight: 300;
-  font-size: 11px;
-  letter-spacing: 6px;
-  text-transform: uppercase;
-  color: rgba(250,250,248,0.38);
-  margin-top: -20px;
-}
-.pre-track {
-  width: 160px; height: 1px;
-  background: rgba(201,168,76,0.22);
-  position: relative; overflow: hidden;
-}
-#preloader-bar {
-  position: absolute; left: 0; top: 0; bottom: 0;
-  background: var(--gold); width: 0%;
-  transition: width 0.1s linear;
-}
-.pre-count {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 11px; letter-spacing: 2px;
-  color: rgba(250,250,248,0.28);
-}
+#hero.complete::after { background: rgba(201,168,76,0.06); }
 
 /* ═══════════════════════════════════════
    CUSTOM CURSOR
@@ -272,39 +255,7 @@ nav.light .nav-hamburger span { background: var(--verde); }
 .mobile-menu.open .mobile-nav-cta { opacity: 1; transform: translateY(0); }
 .mobile-nav-cta:hover { background: var(--gold); color: var(--verde); }
 
-/* ═══════════════════════════════════════
-   HERO — SCROLL CONTAINER
-═══════════════════════════════════════ */
-#hero-scroll-container {
-  height: 450vh;
-  position: relative;
-}
-@media (max-width: 768px) {
-  #hero-scroll-container { height: 100vh; }
-}
-
-#hero-sticky {
-  position: sticky; top: 0;
-  height: 100vh; overflow: hidden;
-  background: #080e0a;
-}
-
-/* Desktop: scroll-driven canvas */
-#hero-canvas {
-  position: absolute; inset: 0;
-  width: 100%; height: 100%;
-  display: block;
-}
-
-/* Mobile: last frame as static background */
-@media (max-width: 768px) {
-  #hero-canvas { display: none; }
-  #hero-sticky {
-    background-image: url('frames/frame_071.webp');
-    background-size: cover;
-    background-position: center 30%;
-  }
-}
+/* (hero video styles above) */
 
 /* ── Cinematic overlay ── */
 .hero-overlay {
@@ -376,13 +327,12 @@ nav.light .nav-hamburger span { background: var(--verde); }
   opacity: 1; transform: translateY(0);
 }
 
-/* ── Scroll progress bar ── */
+/* ── Video progress bar ── */
 #hero-progress {
   position: absolute; bottom: 0; left: 0;
   height: 2px; background: var(--gold);
   width: 0%; z-index: 6;
-  transition: none;
-  transform-origin: left;
+  transition: width .25s linear;
 }
 
 /* ── Scroll hint ── */
@@ -411,10 +361,10 @@ nav.light .nav-hamburger span { background: var(--verde); }
   50%      { transform: translateY(7px); opacity: 1; }
 }
 
-/* Mobile hero adjustments */
 @media (max-width: 768px) {
   .hero-content { left: 28px; right: 28px; bottom: 10vh; max-width: 100%; }
   .scroll-hint { display: none; }
+  #hero-video { transform: none !important; }
 }
 
 /* ═══════════════════════════════════════
@@ -826,20 +776,12 @@ footer::after {
 </head>
 <body>
 
-<!-- ═══ PRELOADER ═══ -->
-<div id="preloader">
-  <p class="pre-logo">GS Advisory</p>
-  <p class="pre-sub">Consultoría en Licitaciones</p>
-  <div class="pre-track"><div id="preloader-bar"></div></div>
-  <span class="pre-count" id="preloader-count">0 / 71</span>
-</div>
-
 <!-- ═══ CUSTOM CURSOR ═══ -->
 <div id="cursor" aria-hidden="true"></div>
 
 <!-- ═══ NAV ═══ -->
 <nav id="main-nav">
-  <a href="#hero-scroll-container" class="nav-logo">GS Advisory</a>
+  <a href="#hero" class="nav-logo">GS Advisory</a>
   <ul class="nav-links">
     <li><a href="#servicios">Servicios</a></li>
     <li><a href="#diferencial">Nosotros</a></li>
@@ -862,34 +804,34 @@ footer::after {
 </div>
 
 <!-- ═══ HERO ═══ -->
-<div id="hero-scroll-container">
-  <div id="hero-sticky">
+<section id="hero">
 
-    <!-- Scroll-driven canvas (desktop) -->
-    <canvas id="hero-canvas"></canvas>
+  <!-- Autoplay video — muted, plays once, freezes on last frame -->
+  <video id="hero-video" autoplay muted playsinline poster="frames/frame_001.webp">
+    <source src="assets/hero.mp4" type="video/mp4">
+  </video>
 
-    <!-- Cinematic overlay -->
-    <div class="hero-overlay"></div>
+  <!-- Cinematic overlay -->
+  <div class="hero-overlay"></div>
 
-    <!-- Copy -->
-    <div class="hero-content" id="hero-content">
-      <span class="hero-eyebrow">Consultoría especializada</span>
-      <h1 class="hero-title">Del pliego<br>a la <em>adjudicación</em></h1>
-      <p class="hero-sub">Desarrollamos ofertas técnicas y económicas diferenciales para que tu empresa gane más contratos — en licitaciones públicas y privadas.</p>
-      <a href="#contacto" class="hero-cta">Consultá ahora</a>
-    </div>
-
-    <!-- Scroll progress bar -->
-    <div id="hero-progress"></div>
-
-    <!-- Scroll hint -->
-    <div class="scroll-hint" id="scroll-hint" aria-hidden="true">
-      <span class="scroll-hint-label">Desplazá para descubrir</span>
-      <div class="scroll-arrow"></div>
-    </div>
-
+  <!-- Copy -->
+  <div class="hero-content" id="hero-content">
+    <span class="hero-eyebrow">Consultoría especializada</span>
+    <h1 class="hero-title">Del pliego<br>a la <em>adjudicación</em></h1>
+    <p class="hero-sub">Desarrollamos ofertas técnicas y económicas diferenciales para que tu empresa gane más contratos — en licitaciones públicas y privadas.</p>
+    <a href="#contacto" class="hero-cta">Consultá ahora</a>
   </div>
-</div>
+
+  <!-- Video progress bar -->
+  <div id="hero-progress"></div>
+
+  <!-- Scroll hint -->
+  <div class="scroll-hint" id="scroll-hint" aria-hidden="true">
+    <span class="scroll-hint-label">Desplazá para más</span>
+    <div class="scroll-arrow"></div>
+  </div>
+
+</section>
 
 <!-- ═══ STATS ═══ -->
 <section id="stats">
@@ -1111,9 +1053,6 @@ footer::after {
 <script>
 'use strict';
 
-var TOTAL_FRAMES = 71;
-var IS_MOBILE = window.innerWidth <= 768;
-
 /* ── HAMBURGER MENU ── */
 (function () {
   var btn     = document.querySelector('.nav-hamburger');
@@ -1165,10 +1104,10 @@ var IS_MOBILE = window.innerWidth <= 768;
   });
 
   // Dark cursor when on hero
-  var heroContainer = document.getElementById('hero-scroll-container');
+  var heroEl = document.getElementById('hero');
   window.addEventListener('scroll', function () {
-    var heroBottom = heroContainer.offsetTop + heroContainer.offsetHeight - window.innerHeight;
-    if (window.scrollY <= heroBottom) {
+    var heroBottom = heroEl ? heroEl.offsetHeight : window.innerHeight;
+    if (window.scrollY <= heroBottom - 80) {
       cursor.classList.add('on-hero');
     } else {
       cursor.classList.remove('on-hero');
@@ -1177,71 +1116,51 @@ var IS_MOBILE = window.innerWidth <= 768;
   cursor.classList.add('on-hero'); // starts on hero
 }());
 
-/* ── SCROLL-DRIVEN HERO (desktop only) ── */
+/* ── HERO VIDEO ── */
 (function () {
-  if (IS_MOBILE) {
-    /* Mobile: no preloader, reveal content immediately */
-    document.getElementById('preloader').classList.add('hidden');
-    setTimeout(function () {
-      document.getElementById('hero-content').classList.add('visible');
-    }, 100);
-    return;
-  }
+  var video      = document.getElementById('hero-video');
+  var progress   = document.getElementById('hero-progress');
+  var hero       = document.getElementById('hero');
+  var content    = document.getElementById('hero-content');
+  var hint       = document.getElementById('scroll-hint');
 
-  var canvas          = document.getElementById('hero-canvas');
-  var ctx             = canvas.getContext('2d');
-  var frames          = new Array(TOTAL_FRAMES);
-  var framesLoaded    = 0;
-  var currentFrame    = 0;
-  var nav             = document.getElementById('main-nav');
-  var heroContainer   = document.getElementById('hero-scroll-container');
-  var heroProgress    = document.getElementById('hero-progress');
-  var scrollHint      = document.getElementById('scroll-hint');
-  var heroContent     = document.getElementById('hero-content');
-  var preloader       = document.getElementById('preloader');
-  var preloaderBar    = document.getElementById('preloader-bar');
-  var preloaderCount  = document.getElementById('preloader-count');
+  /* Entrance: text animates in on load */
+  window.addEventListener('DOMContentLoaded', function () {
+    setTimeout(function () { content.classList.add('visible'); }, 350);
+    setTimeout(function () { if (hint) hint.classList.add('visible'); }, 2200);
+  });
 
-  /* Resize canvas to fill viewport */
-  function resizeCanvas() {
-    canvas.width  = window.innerWidth;
-    canvas.height = window.innerHeight;
-    drawFrame(currentFrame);
-  }
+  if (!video) return;
 
-  /* Cover-fit draw — like CSS object-fit:cover */
-  function drawFrame(index) {
-    var img = frames[index];
-    if (!img || !img.complete || !img.naturalWidth) return;
-    var cw = canvas.width,  ch = canvas.height;
-    var iw = img.naturalWidth, ih = img.naturalHeight;
-    var scale = Math.max(cw / iw, ch / ih);
-    var x = (cw - iw * scale) / 2;
-    var y = (ch - ih * scale) / 2;
-    ctx.clearRect(0, 0, cw, ch);
-    ctx.drawImage(img, x, y, iw * scale, ih * scale);
-  }
+  /* Slight de-zoom as video starts playing (cinematic feel) */
+  video.addEventListener('playing', function () {
+    video.classList.add('playing');
+  });
 
-  /* Scroll handler */
-  function onScroll() {
-    var scrollY       = window.scrollY;
-    var containerTop  = heroContainer.offsetTop;
-    var scrollable    = heroContainer.offsetHeight - window.innerHeight;
-    var progress      = Math.max(0, Math.min(1, (scrollY - containerTop) / scrollable));
+  /* Progress bar fills as video plays */
+  video.addEventListener('timeupdate', function () {
+    if (!video.duration) return;
+    progress.style.width = ((video.currentTime / video.duration) * 100) + '%';
+  });
 
-    /* Frame */
-    var fi = Math.min(Math.floor(progress * (TOTAL_FRAMES - 1)), TOTAL_FRAMES - 1);
-    if (fi !== currentFrame) { currentFrame = fi; drawFrame(fi); }
+  /* Handshake complete: freeze on last frame + gold flash */
+  video.addEventListener('ended', function () {
+    hero.classList.add('complete');
+    progress.style.width = '100%';
+    progress.style.transition = 'none';
+  });
+}());
 
-    /* Progress bar */
-    heroProgress.style.width = (progress * 100) + '%';
+/* ── NAV SCROLL ── */
+(function () {
+  var nav  = document.getElementById('main-nav');
+  var hero = document.getElementById('hero');
 
-    /* Scroll hint */
-    scrollHint.style.opacity = progress > 0.04 ? '0' : '1';
+  window.addEventListener('scroll', function () {
+    var heroH  = hero ? hero.offsetHeight : window.innerHeight;
+    var scrollY = window.scrollY;
 
-    /* Nav color transition */
-    var heroEnd = containerTop + heroContainer.offsetHeight - window.innerHeight;
-    if (scrollY > heroEnd) {
+    if (scrollY > heroH - 80) {
       nav.classList.add('light');
       nav.classList.remove('scrolled');
     } else if (scrollY > 60) {
@@ -1250,60 +1169,8 @@ var IS_MOBILE = window.innerWidth <= 768;
     } else {
       nav.classList.remove('scrolled', 'light');
     }
-  }
-
-  /* Preload all frames */
-  function preloadFrames() {
-    return new Promise(function (resolve) {
-      for (var i = 0; i < TOTAL_FRAMES; i++) {
-        (function (idx) {
-          var img = new Image();
-          img.onload = img.onerror = function () {
-            framesLoaded++;
-            var pct = framesLoaded / TOTAL_FRAMES;
-            preloaderBar.style.width    = Math.round(pct * 100) + '%';
-            preloaderCount.textContent  = framesLoaded + ' / ' + TOTAL_FRAMES;
-            if (framesLoaded === TOTAL_FRAMES) resolve();
-          };
-          img.src = 'frames/frame_' + String(idx + 1).padStart(3, '0') + '.webp';
-          frames[idx] = img;
-        }(i));
-      }
-    });
-  }
-
-  /* Boot */
-  resizeCanvas();
-  window.addEventListener('resize', resizeCanvas);
-
-  preloadFrames().then(function () {
-    drawFrame(0);
-    preloader.classList.add('hidden');
-
-    setTimeout(function () {
-      heroContent.classList.add('visible');
-    }, 200);
-
-    setTimeout(function () {
-      scrollHint.classList.add('visible');
-    }, 1500);
-
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll(); // run once for current scroll position
-  });
-}());
-
-/* ── NAV SCROLL — mobile (no hero container) ── */
-if (IS_MOBILE) {
-  window.addEventListener('scroll', function () {
-    var nav = document.getElementById('main-nav');
-    if (window.scrollY > 80) {
-      nav.classList.add('light');
-    } else {
-      nav.classList.remove('light');
-    }
   }, { passive: true });
-}
+}());
 
 /* ── STATS COUNT-UP ── */
 (function () {
