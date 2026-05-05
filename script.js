@@ -64,19 +64,16 @@ document.addEventListener('DOMContentLoaded', () => {
         revealObs.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.05, rootMargin: '50px' });
+  }, { threshold: 0.02, rootMargin: '100px 0px' });
 
   document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 
-  // Fallback: forzar elementos visibles que el observer haya omitido
+  // Fallback: forzar visibles si el observer no los activó
   setTimeout(() => {
     document.querySelectorAll('.reveal:not(.visible)').forEach(el => {
-      const rect = el.getBoundingClientRect();
-      if (rect.top < window.innerHeight + 200) {
-        el.classList.add('visible');
-      }
+      el.classList.add('visible');
     });
-  }, 3000);
+  }, 4000);
 
 
   // =========================================
