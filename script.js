@@ -64,9 +64,19 @@ document.addEventListener('DOMContentLoaded', () => {
         revealObs.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  }, { threshold: 0.05, rootMargin: '50px' });
 
   document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+  // Fallback: forzar elementos visibles que el observer haya omitido
+  setTimeout(() => {
+    document.querySelectorAll('.reveal:not(.visible)').forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight + 200) {
+        el.classList.add('visible');
+      }
+    });
+  }, 3000);
 
 
   // =========================================
