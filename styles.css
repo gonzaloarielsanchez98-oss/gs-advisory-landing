@@ -225,9 +225,9 @@ section { position: relative; padding: 80px 0; }
 }
 
 .nav-logo {
-  font-family: 'Inter Tight', sans-serif;
-  font-size: 18px;
-  font-weight: 800;
+  font-family: 'Outfit', sans-serif;
+  font-size: 20px;
+  font-weight: 400;
   letter-spacing: -0.02em;
   color: var(--texto-principal);
   flex-shrink: 0;
@@ -273,7 +273,7 @@ section { position: relative; padding: 80px 0; }
 
 .nav-dot {
   color: var(--naranja);
-  font-size: 9px;
+  font-size: 14px;
   line-height: 1;
 }
 
@@ -375,17 +375,15 @@ section { position: relative; padding: 80px 0; }
   z-index: 2;
   display: flex;
   align-items: center;
-  max-width: 1300px;
   width: 100%;
-  margin: 0 auto;
-  padding: calc(var(--nav-h) + 1rem) 3rem 4rem 5.5rem;
+  padding: calc(var(--nav-h) + 1rem) 3rem 4rem 7%;
   min-height: 100vh;
 }
 
 .hero-content {
   position: relative;
   z-index: 2;
-  max-width: 550px;
+  max-width: 460px;
   flex-shrink: 0;
 }
 
