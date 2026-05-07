@@ -99,7 +99,7 @@ ul   { list-style: none; }
    ========================================= */
 .section-lateral {
   position: absolute;
-  left: 1.5rem;
+  left: 4%;
   right: auto;
   top: 50%;
   transform: translateY(-50%);
