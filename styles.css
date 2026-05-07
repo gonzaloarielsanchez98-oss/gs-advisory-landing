@@ -374,9 +374,9 @@ section { position: relative; padding: 80px 0; }
   position: relative;
   z-index: 2;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   width: 100%;
-  padding: calc(var(--nav-h) + 1rem) 3rem 4rem 7%;
+  padding: calc(var(--nav-h) + 10vh) 3rem 4rem 4%;
   min-height: 100vh;
 }
 
@@ -898,7 +898,7 @@ section { position: relative; padding: 80px 0; }
   .footer-inner   { padding: 0 2rem 0 4rem; }
   .services-grid  { grid-template-columns: repeat(2, 1fr); }
   .testimonios-layout { gap: 3rem; }
-  .hero-inner     { padding-left: 4.5rem; }
+  .hero-inner     { padding-left: 3rem; }
 }
 
 /* =========================================
