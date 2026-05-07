@@ -101,8 +101,8 @@ ul   { list-style: none; }
   position: absolute;
   left: 4%;
   right: auto;
-  top: 50%;
-  transform: translateY(-50%);
+  top: calc(var(--nav-h) + 10vh);
+  transform: none;
   display: flex;
   flex-direction: column;
   align-items: center;
