@@ -99,9 +99,9 @@ ul   { list-style: none; }
    ========================================= */
 .section-lateral {
   position: absolute;
-  left: 4%;
+  left: 2.5%;
   right: auto;
-  top: var(--nav-h);
+  top: calc(var(--nav-h) - 20px);
   transform: none;
   display: flex;
   flex-direction: column;
