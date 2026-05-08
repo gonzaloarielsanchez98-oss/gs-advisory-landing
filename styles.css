@@ -765,8 +765,10 @@ section { position: relative; padding: 80px 0; }
 .form-feedback.error   { color: #c0392b; }
 
 .cta-email {
-  font-size: 14px;
+  font-size: 17px;
   color: var(--texto-sec);
+  text-align: center;
+  margin-top: 1rem;
 }
 .cta-email a { transition: color 0.2s; }
 .cta-email a:hover { color: var(--naranja); }
