@@ -376,7 +376,7 @@ section { position: relative; padding: 80px 0; }
   display: flex;
   align-items: flex-start;
   width: 100%;
-  padding: calc(var(--nav-h) + 60px) 3rem 4rem 4%;
+  padding: calc(var(--nav-h) + 60px) 3rem 4rem 9%;
   min-height: 100vh;
 }
 
