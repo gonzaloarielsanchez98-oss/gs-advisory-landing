@@ -343,8 +343,8 @@ section { position: relative; padding: 80px 0; }
 
 .mobile-link {
   display: block;
-  font-family: 'Inter Tight', sans-serif;
-  font-size: 22px; font-weight: 700;
+  font-family: 'Outfit', sans-serif;
+  font-size: 22px; font-weight: 400;
   color: var(--texto-principal);
   padding: 0.85rem 0;
   border-bottom: 1px solid var(--borde);
@@ -500,16 +500,16 @@ section { position: relative; padding: 80px 0; }
 
 .service-num {
   display: block;
-  font-family: 'Inter Tight', sans-serif;
-  font-size: 12px; font-weight: 700;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px; font-weight: 600;
   color: var(--naranja);
   letter-spacing: 0.06em;
   margin-bottom: 1rem;
 }
 
 .service-title {
-  font-family: 'Inter Tight', sans-serif;
-  font-size: 18px; font-weight: 700;
+  font-family: 'Outfit', sans-serif;
+  font-size: 18px; font-weight: 500;
   letter-spacing: -0.015em;
   line-height: 1.25;
   color: var(--texto-principal);
@@ -541,8 +541,8 @@ section { position: relative; padding: 80px 0; }
 .complementary-card:hover { border-color: var(--naranja); }
 
 .comp-title {
-  font-family: 'Inter Tight', sans-serif;
-  font-size: 22px; font-weight: 700;
+  font-family: 'Outfit', sans-serif;
+  font-size: 22px; font-weight: 400;
   letter-spacing: -0.02em;
   color: var(--texto-principal);
   margin-bottom: 1.5rem;
@@ -610,8 +610,8 @@ section { position: relative; padding: 80px 0; }
 }
 
 .enfoque-title {
-  font-family: 'Inter Tight', sans-serif;
-  font-size: 17px; font-weight: 700;
+  font-family: 'Outfit', sans-serif;
+  font-size: 17px; font-weight: 500;
   letter-spacing: -0.01em;
   color: var(--texto-principal);
   margin-bottom: 0.5rem;
@@ -846,8 +846,8 @@ section { position: relative; padding: 80px 0; }
 }
 
 .footer-logo {
-  font-family: 'Inter Tight', sans-serif;
-  font-size: 16px; font-weight: 800;
+  font-family: 'Outfit', sans-serif;
+  font-size: 16px; font-weight: 400;
   letter-spacing: -0.02em;
   color: var(--texto-principal);
 }
