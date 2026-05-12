@@ -419,6 +419,8 @@ section { position: relative; padding: 80px 0; }
   gap: 0.875rem;
   flex-wrap: wrap;
 }
+.hero-btns .btn-primary,
+.hero-btns .btn-secondary { flex: 1; justify-content: center; }
 
 
 /* Hero entrance animations */
@@ -695,11 +697,6 @@ section { position: relative; padding: 80px 0; }
   margin-bottom: 1.25rem;
 }
 
-.cta-btn-row {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 0.75rem;
-}
 
 /* Form */
 .contact-form {
