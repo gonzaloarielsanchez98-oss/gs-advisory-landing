@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
         revealObs.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.06, rootMargin: '0px 0px -4% 0px' });
+  }, { threshold: 0.02, rootMargin: '0px 0px 0px 0px' });
 
   document.querySelectorAll('.reveal, .reveal-left').forEach(el => revealObs.observe(el));
 
