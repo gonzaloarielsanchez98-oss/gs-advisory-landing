@@ -194,7 +194,12 @@ section { position: relative; padding: 80px 0; }
   transform: translateY(-1px);
 }
 
-.btn-arrow { font-size: 15px; line-height: 1; }
+.btn-arrow {
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
+}
+.btn-arrow svg { display: block; }
 
 /* =========================================
    NAV
