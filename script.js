@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   // =========================================
-  // Scroll reveal
+  // Scroll reveal (.reveal + .reveal-left)
   // =========================================
   const revealObs = new IntersectionObserver(entries => {
     entries.forEach(entry => {
@@ -64,16 +64,40 @@ document.addEventListener('DOMContentLoaded', () => {
         revealObs.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.02, rootMargin: '100px 0px' });
+  }, { threshold: 0.06, rootMargin: '0px 0px -4% 0px' });
 
-  document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+  document.querySelectorAll('.reveal, .reveal-left').forEach(el => revealObs.observe(el));
 
   // Fallback: forzar visibles si el observer no los activó
   setTimeout(() => {
-    document.querySelectorAll('.reveal:not(.visible)').forEach(el => {
+    document.querySelectorAll('.reveal:not(.visible), .reveal-left:not(.visible)').forEach(el => {
       el.classList.add('visible');
     });
   }, 4000);
+
+
+  // =========================================
+  // Parallax en imágenes de fondo (desktop)
+  // =========================================
+  const parallaxImages = Array.from(document.querySelectorAll('.bg-image[data-parallax]'));
+
+  if (parallaxImages.length) {
+    const runParallax = () => {
+      if (window.innerWidth < 769) return;
+      parallaxImages.forEach(img => {
+        const section = img.closest('section');
+        const rect = section.getBoundingClientRect();
+        const vh = window.innerHeight;
+        if (rect.bottom < 0 || rect.top > vh) return;
+        const progress = (vh - rect.top) / (vh + rect.height);
+        const offset = (progress - 0.5) * 60;
+        img.style.transform = `translateY(${offset}px)`;
+      });
+    };
+
+    window.addEventListener('scroll', runParallax, { passive: true });
+    runParallax();
+  }
 
 
   // =========================================
