@@ -264,22 +264,22 @@
 
         <form class="contact-form" id="contactForm" action="https://formspree.io/f/mojkqeqq" method="POST">
           <div class="form-row">
-            <div class="form-group">
+            <div class="form-group float-group">
+              <input type="text" id="nombre" name="nombre" placeholder=" " required autocomplete="name">
               <label for="nombre">Nombre completo</label>
-              <input type="text" id="nombre" name="nombre" placeholder="Juan García" required autocomplete="name">
             </div>
-            <div class="form-group">
+            <div class="form-group float-group">
+              <input type="text" id="empresa" name="empresa" placeholder=" " autocomplete="organization">
               <label for="empresa">Empresa</label>
-              <input type="text" id="empresa" name="empresa" placeholder="Tu empresa S.A." autocomplete="organization">
             </div>
           </div>
-          <div class="form-group">
+          <div class="form-group float-group">
+            <input type="email" id="email" name="email" placeholder=" " required autocomplete="email">
             <label for="email">Correo electrónico</label>
-            <input type="email" id="email" name="email" placeholder="juan@empresa.com" required autocomplete="email">
           </div>
-          <div class="form-group">
+          <div class="form-group float-group">
+            <textarea id="mensaje" name="mensaje" rows="3" placeholder=" " required></textarea>
             <label for="mensaje">¿En qué podemos ayudarte?</label>
-            <textarea id="mensaje" name="mensaje" rows="3" placeholder="Cuéntanos sobre tu licitación o consulta…" required></textarea>
           </div>
           <button type="submit" class="btn-primary btn-form" id="submitBtn">
             Enviar consulta <span class="btn-arrow"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.5 11.5L11.5 2.5M11.5 2.5H5M11.5 2.5V9" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
