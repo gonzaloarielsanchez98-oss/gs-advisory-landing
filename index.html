@@ -36,33 +36,39 @@
       <a href="#" class="nav-logo">GS Advisory</a>
 
       <ul class="nav-links">
-        <li><a href="#servicios">Licitaciones</a></li>
-        <li><a href="#servicios">Servicios</a></li>
-        <li><a href="#enfoque">Enfoque</a></li>
-        <li><a href="#enfoque">Sobre Nosotros</a></li>
-        <li><a href="https://www.linkedin.com/company/gsadvisoryco/" target="_blank" rel="noopener noreferrer">Redes</a></li>
+        <li><a href="#servicios" data-i18n="nav.tenders">Licitaciones</a></li>
+        <li><a href="#servicios" data-i18n="nav.services">Servicios</a></li>
+        <li><a href="#enfoque"   data-i18n="nav.approach">Enfoque</a></li>
+        <li><a href="#enfoque"   data-i18n="nav.about">Sobre Nosotros</a></li>
+        <li><a href="https://www.linkedin.com/company/gsadvisoryco/" target="_blank" rel="noopener noreferrer" data-i18n="nav.social">Redes</a></li>
       </ul>
 
-      <a href="#contacto" class="nav-cta">
-        <span class="nav-dot" aria-hidden="true">●</span> Contacto
-      </a>
-
-      <button class="hamburger" aria-label="Abrir menú" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
+      <div class="nav-end">
+        <a href="#contacto" class="nav-cta">
+          <span class="nav-dot" aria-hidden="true">●</span><span data-i18n="nav.contact">Contacto</span>
+        </a>
+        <div class="lang-switcher">
+          <button class="lang-btn active" data-lang="es">ES</button>
+          <span class="lang-sep">/</span>
+          <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+        <button class="hamburger" aria-label="Abrir menú" aria-expanded="false" data-i18n-aria="hamburger.aria">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </div>
   </nav>
 
   <!-- ================ MOBILE MENU ================= -->
   <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
-    <button class="mobile-close" aria-label="Cerrar menú">✕</button>
+    <button class="mobile-close" aria-label="Cerrar menú" data-i18n-aria="close.aria">✕</button>
     <nav class="mobile-nav">
-      <a href="#servicios"  class="mobile-link">Licitaciones</a>
-      <a href="#servicios"  class="mobile-link">Servicios</a>
-      <a href="#enfoque"    class="mobile-link">Enfoque</a>
-      <a href="#enfoque" class="mobile-link">Sobre Nosotros</a>
-      <a href="https://www.linkedin.com/company/gsadvisoryco/" target="_blank" rel="noopener noreferrer" class="mobile-link">Redes</a>
-      <a href="#contacto"  class="mobile-link mobile-link-cta">Contacto</a>
+      <a href="#servicios"  class="mobile-link" data-i18n="nav.tenders">Licitaciones</a>
+      <a href="#servicios"  class="mobile-link" data-i18n="nav.services">Servicios</a>
+      <a href="#enfoque"    class="mobile-link" data-i18n="nav.approach">Enfoque</a>
+      <a href="#enfoque"    class="mobile-link" data-i18n="nav.about">Sobre Nosotros</a>
+      <a href="https://www.linkedin.com/company/gsadvisoryco/" target="_blank" rel="noopener noreferrer" class="mobile-link" data-i18n="nav.social">Redes</a>
+      <a href="#contacto"   class="mobile-link mobile-link-cta" data-i18n="nav.contact">Contacto</a>
     </nav>
   </div>
 
@@ -70,7 +76,7 @@
   <section id="hero">
     <div class="section-lateral" aria-hidden="true">
       <span class="lateral-dot"></span>
-      <span class="lateral-text">Asesoría / Licitaciones</span>
+      <span class="lateral-text" data-i18n="hero.lateral">Asesoría / Licitaciones</span>
       <span class="lateral-line"></span>
     </div>
 
@@ -78,16 +84,16 @@
 
     <div class="hero-inner">
       <div class="hero-content">
-        <span class="tag hero-tag hero-anim" style="--delay:.1s">Del Pliego a la Adjudicación</span>
-        <h1 class="hero-title hero-anim" style="--delay:.25s">
+        <span class="tag hero-tag hero-anim" style="--delay:.1s" data-i18n="hero.tag">Del Pliego a la Adjudicación</span>
+        <h1 class="hero-title hero-anim" style="--delay:.25s" data-i18n-html="hero.title">
           Asesoría en<br>Licitaciones<br>Industriales.
         </h1>
-        <p class="hero-desc hero-anim" style="--delay:.45s">
+        <p class="hero-desc hero-anim" style="--delay:.45s" data-i18n="hero.desc">
           Estrategias técnicas, análisis de pliegos y control de riesgos para asegurar adjudicaciones exitosas en obras industriales.
         </p>
         <div class="hero-btns hero-anim" style="--delay:.6s">
-          <a href="#contacto"    class="btn-primary">Iniciar un Proyecto <span class="btn-arrow"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.5 11.5L11.5 2.5M11.5 2.5H5M11.5 2.5V9" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
-          <a href="#servicios" class="btn-secondary">Conocé más <span class="btn-arrow"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.5 11.5L11.5 2.5M11.5 2.5H5M11.5 2.5V9" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+          <a href="#contacto"  class="btn-primary"><span data-i18n="hero.cta1">Iniciar un Proyecto</span> <span class="btn-arrow"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.5 11.5L11.5 2.5M11.5 2.5H5M11.5 2.5V9" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+          <a href="#servicios" class="btn-secondary"><span data-i18n="hero.cta2">Conocé más</span> <span class="btn-arrow"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.5 11.5L11.5 2.5M11.5 2.5H5M11.5 2.5V9" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
         </div>
       </div>
     </div>
@@ -99,17 +105,17 @@
       <div class="stats-grid">
         <div class="stat-item">
           <span class="stat-num" data-target="50" data-prefix="+" data-suffix="">+50</span>
-          <span class="stat-label">Contratos adjudicados</span>
+          <span class="stat-label" data-i18n="stats.contracts">Contratos adjudicados</span>
         </div>
         <div class="stat-divider" aria-hidden="true"></div>
         <div class="stat-item">
           <span class="stat-num" data-target="4" data-prefix="+$" data-suffix="M USD">+$4M USD</span>
-          <span class="stat-label">Gestionados en licitaciones</span>
+          <span class="stat-label" data-i18n="stats.managed">Gestionados en licitaciones</span>
         </div>
         <div class="stat-divider" aria-hidden="true"></div>
         <div class="stat-item">
-          <span class="stat-num" data-target="4" data-prefix="+" data-suffix=" Años">+4 Años</span>
-          <span class="stat-label">De experiencia en el rubro</span>
+          <span class="stat-num" data-target="4" data-prefix="+" data-suffix=" Años" data-i18n-suffix="stats.years-suffix">+4 Años</span>
+          <span class="stat-label" data-i18n="stats.years">De experiencia en el rubro</span>
         </div>
       </div>
     </div>
@@ -120,44 +126,44 @@
     <img src="assets/2.png" alt="" class="bg-image" data-parallax loading="lazy">
     <div class="section-lateral" aria-hidden="true">
       <span class="lateral-dot"></span>
-      <span class="lateral-text">02 / Servicios</span>
+      <span class="lateral-text" data-i18n="services.lateral">02 / Servicios</span>
       <span class="lateral-line"></span>
     </div>
     <div class="container">
       <div class="section-header reveal-left">
-        <span class="tag">Lo que hacemos</span>
-        <h2 class="section-title">Nuestros servicios.</h2>
+        <span class="tag" data-i18n="services.tag">Lo que hacemos</span>
+        <h2 class="section-title" data-i18n="services.title">Nuestros servicios.</h2>
       </div>
       <div class="services-grid">
         <div class="service-card reveal" style="--stagger:.00s">
           <span class="service-num">01</span>
-          <h3 class="service-title">Análisis estratégico de pliegos</h3>
-          <p class="service-desc">Analizamos cada pliego en detalle para identificar requisitos críticos, riesgos ocultos y oportunidades competitivas antes de cotizar.</p>
+          <h3 class="service-title" data-i18n="s1.title">Análisis estratégico de pliegos</h3>
+          <p class="service-desc" data-i18n="s1.desc">Analizamos cada pliego en detalle para identificar requisitos críticos, riesgos ocultos y oportunidades competitivas antes de cotizar.</p>
         </div>
         <div class="service-card reveal" style="--stagger:.08s">
           <span class="service-num">02</span>
-          <h3 class="service-title">Ofertas técnicas de alto impacto</h3>
-          <p class="service-desc">Elaboramos memorias descriptivas y documentación técnica con el nivel de detalle que los comités evaluadores buscan.</p>
+          <h3 class="service-title" data-i18n="s2.title">Ofertas técnicas de alto impacto</h3>
+          <p class="service-desc" data-i18n="s2.desc">Elaboramos memorias descriptivas y documentación técnica con el nivel de detalle que los comités evaluadores buscan.</p>
         </div>
         <div class="service-card reveal" style="--stagger:.16s">
           <span class="service-num">03</span>
-          <h3 class="service-title">Propuestas económicas competitivas</h3>
-          <p class="service-desc">Estructuramos presupuestos que maximizan tu margen sin perder competitividad, respaldados con inteligencia de mercado.</p>
+          <h3 class="service-title" data-i18n="s3.title">Propuestas económicas competitivas</h3>
+          <p class="service-desc" data-i18n="s3.desc">Estructuramos presupuestos que maximizan tu margen sin perder competitividad, respaldados con inteligencia de mercado.</p>
         </div>
         <div class="service-card reveal" style="--stagger:.24s">
           <span class="service-num">04</span>
-          <h3 class="service-title">Documentación y presentación ejecutiva</h3>
-          <p class="service-desc">Armamos el legajo completo — garantías, certificaciones, antecedentes — para que tu presentación sea impecable y sin observaciones.</p>
+          <h3 class="service-title" data-i18n="s4.title">Documentación y presentación ejecutiva</h3>
+          <p class="service-desc" data-i18n="s4.desc">Armamos el legajo completo — garantías, certificaciones, antecedentes — para que tu presentación sea impecable y sin observaciones.</p>
         </div>
         <div class="service-card reveal" style="--stagger:.32s">
           <span class="service-num">05</span>
-          <h3 class="service-title">Identificación de oportunidades</h3>
-          <p class="service-desc">Monitoreamos portales públicos y privados para detectar licitaciones alineadas al perfil y capacidad de tu empresa.</p>
+          <h3 class="service-title" data-i18n="s5.title">Identificación de oportunidades</h3>
+          <p class="service-desc" data-i18n="s5.desc">Monitoreamos portales públicos y privados para detectar licitaciones alineadas al perfil y capacidad de tu empresa.</p>
         </div>
         <div class="service-card reveal" style="--stagger:.40s">
           <span class="service-num">06</span>
-          <h3 class="service-title">Desarrollo y expansión de cartera</h3>
-          <p class="service-desc">Diseñamos la estrategia comercial para que accedas a nuevos clientes corporativos y organismos estatales.</p>
+          <h3 class="service-title" data-i18n="s6.title">Desarrollo y expansión de cartera</h3>
+          <p class="service-desc" data-i18n="s6.desc">Diseñamos la estrategia comercial para que accedas a nuevos clientes corporativos y organismos estatales.</p>
         </div>
       </div>
     </div>
@@ -168,36 +174,36 @@
     <img src="assets/3.png" alt="" class="bg-image" data-parallax loading="lazy">
     <div class="section-lateral" aria-hidden="true">
       <span class="lateral-dot"></span>
-      <span class="lateral-text">03 / Complementarios</span>
+      <span class="lateral-text" data-i18n="comp.lateral">03 / Complementarios</span>
       <span class="lateral-line"></span>
     </div>
     <div class="container">
       <div class="section-header reveal-left">
-        <span class="tag">También ofrecemos</span>
-        <h2 class="section-title">Soluciones complementarias.</h2>
+        <span class="tag" data-i18n="comp.tag">También ofrecemos</span>
+        <h2 class="section-title" data-i18n="comp.title">Soluciones complementarias.</h2>
       </div>
       <div class="complementary-grid">
         <div class="complementary-card reveal" style="--stagger:.00s">
-          <h3 class="comp-title">Búsqueda y Selección de Personal</h3>
-          <p class="comp-quote">El equipo correcto hace la diferencia.</p>
+          <h3 class="comp-title" data-i18n="comp1.title">Búsqueda y Selección de Personal</h3>
+          <p class="comp-quote" data-i18n="comp1.quote">El equipo correcto hace la diferencia.</p>
           <ul class="comp-list">
-            <li>Búsqueda de perfiles técnicos e ingeniería industrial</li>
-            <li>Selección de mandos medios y posiciones gerenciales</li>
-            <li>Evaluación psicotécnica y preselección de candidatos</li>
-            <li>Acompañamiento en el proceso de incorporación</li>
+            <li data-i18n="comp1.li1">Búsqueda de perfiles técnicos e ingeniería industrial</li>
+            <li data-i18n="comp1.li2">Selección de mandos medios y posiciones gerenciales</li>
+            <li data-i18n="comp1.li3">Evaluación psicotécnica y preselección de candidatos</li>
+            <li data-i18n="comp1.li4">Acompañamiento en el proceso de incorporación</li>
           </ul>
-          <p class="comp-note">Servicio ejecutado por profesionales especializados en RRHH bajo coordinación de GS Advisory.</p>
+          <p class="comp-note" data-i18n="comp1.note">Servicio ejecutado por profesionales especializados en RRHH bajo coordinación de GS Advisory.</p>
         </div>
         <div class="complementary-card reveal" style="--stagger:.10s">
-          <h3 class="comp-title">Marketing Digital</h3>
-          <p class="comp-quote">Presencia profesional que genera oportunidades.</p>
+          <h3 class="comp-title" data-i18n="comp2.title">Marketing Digital</h3>
+          <p class="comp-quote" data-i18n="comp2.quote">Presencia profesional que genera oportunidades.</p>
           <ul class="comp-list">
-            <li>Posicionamiento de marca en el sector industrial</li>
-            <li>Gestión de redes sociales corporativas (LinkedIn, Instagram)</li>
-            <li>Desarrollo de materiales institucionales y presentaciones</li>
-            <li>Estrategia de contenido técnico para atraer clientes</li>
+            <li data-i18n="comp2.li1">Posicionamiento de marca en el sector industrial</li>
+            <li data-i18n="comp2.li2">Gestión de redes sociales corporativas (LinkedIn, Instagram)</li>
+            <li data-i18n="comp2.li3">Desarrollo de materiales institucionales y presentaciones</li>
+            <li data-i18n="comp2.li4">Estrategia de contenido técnico para atraer clientes</li>
           </ul>
-          <p class="comp-note">Servicio ejecutado por profesionales especializados en marketing bajo coordinación de GS Advisory.</p>
+          <p class="comp-note" data-i18n="comp2.note">Servicio ejecutado por profesionales especializados en marketing bajo coordinación de GS Advisory.</p>
         </div>
       </div>
     </div>
@@ -208,44 +214,44 @@
     <img src="assets/4.png" alt="" class="bg-image" data-parallax loading="lazy">
     <div class="section-lateral" aria-hidden="true">
       <span class="lateral-dot"></span>
-      <span class="lateral-text">04 / Enfoque</span>
+      <span class="lateral-text" data-i18n="enfoque.lateral">04 / Enfoque</span>
       <span class="lateral-line"></span>
     </div>
     <div class="container">
       <div class="section-header reveal-left">
-        <span class="tag">Nuestro enfoque</span>
-        <h2 class="section-title">Por qué elegirnos.</h2>
+        <span class="tag" data-i18n="enfoque.tag">Nuestro enfoque</span>
+        <h2 class="section-title" data-i18n="enfoque.title">Por qué elegirnos.</h2>
       </div>
-      <p class="enfoque-intro reveal">
+      <p class="enfoque-intro reveal" data-i18n="enfoque.intro">
         GS Advisory es una consultora especializada en procesos licitatorios, formada por ingenieros con experiencia directa en proyectos de construcción e instalaciones industriales.
       </p>
       <div class="enfoque-grid">
         <div class="enfoque-item reveal" style="--stagger:.00s">
           <span class="enfoque-dot" aria-hidden="true"></span>
           <div>
-            <h3 class="enfoque-title">Dominio técnico del rubro</h3>
-            <p class="enfoque-desc">Ingenieros con trayectoria real en obras industriales. Hablamos el mismo idioma que el comité técnico evaluador.</p>
+            <h3 class="enfoque-title" data-i18n="e1.title">Dominio técnico del rubro</h3>
+            <p class="enfoque-desc" data-i18n="e1.desc">Ingenieros con trayectoria real en obras industriales. Hablamos el mismo idioma que el comité técnico evaluador.</p>
           </div>
         </div>
         <div class="enfoque-item reveal" style="--stagger:.08s">
           <span class="enfoque-dot" aria-hidden="true"></span>
           <div>
-            <h3 class="enfoque-title">Inteligencia artificial aplicada</h3>
-            <p class="enfoque-desc">Herramientas de IA para análisis de pliegos, detección de riesgos y optimización de propuestas en tiempo récord.</p>
+            <h3 class="enfoque-title" data-i18n="e2.title">Inteligencia artificial aplicada</h3>
+            <p class="enfoque-desc" data-i18n="e2.desc">Herramientas de IA para análisis de pliegos, detección de riesgos y optimización de propuestas en tiempo récord.</p>
           </div>
         </div>
         <div class="enfoque-item reveal" style="--stagger:.16s">
           <span class="enfoque-dot" aria-hidden="true"></span>
           <div>
-            <h3 class="enfoque-title">Enfoque estratégico</h3>
-            <p class="enfoque-desc">No solo preparamos la oferta — diseñamos la estrategia completa para maximizar la probabilidad de adjudicación.</p>
+            <h3 class="enfoque-title" data-i18n="e3.title">Enfoque estratégico</h3>
+            <p class="enfoque-desc" data-i18n="e3.desc">No solo preparamos la oferta — diseñamos la estrategia completa para maximizar la probabilidad de adjudicación.</p>
           </div>
         </div>
         <div class="enfoque-item reveal" style="--stagger:.24s">
           <span class="enfoque-dot" aria-hidden="true"></span>
           <div>
-            <h3 class="enfoque-title">Acompañamiento integral</h3>
-            <p class="enfoque-desc">Desde la detección de la oportunidad hasta la adjudicación. Un equipo dedicado en cada etapa del proceso.</p>
+            <h3 class="enfoque-title" data-i18n="e4.title">Acompañamiento integral</h3>
+            <p class="enfoque-desc" data-i18n="e4.desc">Desde la detección de la oportunidad hasta la adjudicación. Un equipo dedicado en cada etapa del proceso.</p>
           </div>
         </div>
       </div>
@@ -259,31 +265,31 @@
       <div class="cta-content reveal">
         <div class="cta-tag-row">
           <span class="cta-dot" aria-hidden="true">●</span>
-          <span class="tag">Estamos listos</span>
+          <span class="tag" data-i18n="contacto.tag">Estamos listos</span>
         </div>
-        <h2 class="cta-title">Llevemos tu próxima<br>licitación al siguiente nivel.</h2>
+        <h2 class="cta-title" data-i18n-html="contacto.title">Llevemos tu próxima<br>licitación al siguiente nivel.</h2>
 
         <form class="contact-form" id="contactForm" action="https://formspree.io/f/mojkqeqq" method="POST">
           <div class="form-row">
             <div class="form-group float-group">
               <input type="text" id="nombre" name="nombre" placeholder=" " required autocomplete="name">
-              <label for="nombre">Nombre completo</label>
+              <label for="nombre" data-i18n="form.nombre">Nombre completo</label>
             </div>
             <div class="form-group float-group">
               <input type="text" id="empresa" name="empresa" placeholder=" " autocomplete="organization">
-              <label for="empresa">Empresa</label>
+              <label for="empresa" data-i18n="form.empresa">Empresa</label>
             </div>
           </div>
           <div class="form-group float-group">
             <input type="email" id="email" name="email" placeholder=" " required autocomplete="email">
-            <label for="email">Correo electrónico</label>
+            <label for="email" data-i18n="form.email">Correo electrónico</label>
           </div>
           <div class="form-group float-group">
             <textarea id="mensaje" name="mensaje" rows="3" placeholder=" " required></textarea>
-            <label for="mensaje">¿En qué podemos ayudarte?</label>
+            <label for="mensaje" data-i18n="form.mensaje">¿En qué podemos ayudarte?</label>
           </div>
           <button type="submit" class="btn-primary btn-form" id="submitBtn">
-            Enviar consulta <span class="btn-arrow"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.5 11.5L11.5 2.5M11.5 2.5H5M11.5 2.5V9" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <span data-i18n="form.submit">Enviar consulta</span> <span class="btn-arrow"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.5 11.5L11.5 2.5M11.5 2.5H5M11.5 2.5V9" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
           </button>
           <div class="form-feedback" id="formFeedback" aria-live="polite"></div>
         </form>
@@ -300,15 +306,15 @@
     <div class="footer-inner">
       <span class="footer-logo">GS Advisory</span>
       <nav class="footer-links" aria-label="Navegación footer">
-        <a href="#servicios">Licitaciones</a>
+        <a href="#servicios" data-i18n="nav.tenders">Licitaciones</a>
         <span class="footer-sep" aria-hidden="true">|</span>
-        <a href="#servicios">Servicios</a>
+        <a href="#servicios" data-i18n="nav.services">Servicios</a>
         <span class="footer-sep" aria-hidden="true">|</span>
-        <a href="#enfoque">Enfoque</a>
+        <a href="#enfoque"   data-i18n="nav.approach">Enfoque</a>
         <span class="footer-sep" aria-hidden="true">|</span>
-        <a href="#enfoque">Sobre Nosotros</a>
+        <a href="#enfoque"   data-i18n="nav.about">Sobre Nosotros</a>
         <span class="footer-sep" aria-hidden="true">|</span>
-        <a href="https://www.linkedin.com/company/gsadvisoryco/" target="_blank" rel="noopener noreferrer">Redes</a>
+        <a href="https://www.linkedin.com/company/gsadvisoryco/" target="_blank" rel="noopener noreferrer" data-i18n="nav.social">Redes</a>
       </nav>
       <span class="footer-copy">© 2025 GS Advisory</span>
     </div>

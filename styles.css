@@ -945,8 +945,8 @@ section { position: relative; padding: 80px 0; }
    ========================================= */
 @media (max-width: 768px) {
   .nav-links,
-  .nav-cta        { display: none; }
-  .hamburger      { display: flex; }
+  .nav-end .nav-cta { display: none; }
+  .hamburger        { display: flex; }
   .section-lateral { display: none; }
 
   .container      { padding: 0 1.5rem; }
@@ -1025,4 +1025,58 @@ section { position: relative; padding: 80px 0; }
     text-align: center;
   }
   .footer-links { flex-wrap: wrap; justify-content: center; }
+}
+
+
+/* =========================================
+   Nav end wrapper + Language switcher
+   ========================================= */
+.nav-end {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.lang-switcher {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.lang-btn {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--texto-sec);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 3px 1px;
+  line-height: 1;
+  transition: color 0.2s;
+}
+
+.lang-btn.active {
+  color: var(--texto-principal);
+  font-weight: 700;
+}
+
+.lang-btn:hover {
+  color: var(--texto-principal);
+}
+
+.lang-sep {
+  color: var(--separador);
+  font-size: 12px;
+  font-family: 'Inter', sans-serif;
+  line-height: 1;
+  user-select: none;
+}
+
+@media (max-width: 768px) {
+  .nav-end {
+    gap: 0.9rem;
+  }
 }
